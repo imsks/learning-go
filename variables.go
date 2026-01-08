@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func variables() {
 	// Exercise 1: Basic Variables - Try all three declaration methods
 
 	// Method 1: var with type (explicit)
@@ -84,4 +84,8 @@ func main() {
 	// if err == nil {
 	//     fmt.Printf("Converted string '%s' to int: %d\n", str, numFromStr)
 	// }
+}
+
+func main() {
+	variables()
 }
