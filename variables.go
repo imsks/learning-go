@@ -86,6 +86,6 @@ func variables() {
 	// }
 }
 
-func main() {
+func runVariables() {
 	variables()
 }

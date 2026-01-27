@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func controlFlow() {
 	// // Exercise 1: If/Else Statements
 	// if age := 20; age < 18 {
@@ -106,15 +104,15 @@ func controlFlow() {
 	// }
 
 	// What's the difference between for i := 0; i < 10; i++ and for i < 10?
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
-	}
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
-		i++
-	}
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(i)
+	// }
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(i)
+	// 	i++
+	// }
 }
 
-func main() {
+func learnControlFlow() {
 	controlFlow()
 }
