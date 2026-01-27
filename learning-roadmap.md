@@ -8,11 +8,11 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 ## 📚 Phase 1: Go Fundamentals (Week 1)
 
 ### 1.1 Getting Started
-- [ ] Install Go and set up development environment
-- [ ] Understand Go workspace structure (GOPATH vs Go modules)
-- [ ] Write your first "Hello, World!" program
-- [ ] Understand `go run`, `go build`, `go install` commands
-- [ ] Set up Go modules (`go mod init`)
+- [x] Install Go and set up development environment
+- [x] Understand Go workspace structure (GOPATH vs Go modules)
+- [x] Write your first "Hello, World!" program
+- [x] Understand `go run`, `go build`, `go install` commands
+- [x] Set up Go modules (`go mod init`)
 
 **Key Concepts:**
 - Go is compiled (unlike Python/JS which are interpreted)
@@ -21,11 +21,11 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 - Strong concurrency support built-in
 
 ### 1.2 Basic Syntax & Types
-- [ ] Variables and constants (`var`, `const`, `:=` shorthand)
-- [ ] Basic data types (int, float64, string, bool)
-- [ ] Type inference and explicit typing
-- [ ] Zero values (what happens when you declare without initializing)
-- [ ] Type conversions (explicit, no implicit conversions like JS)
+- [x] Variables and constants (`var`, `const`, `:=` shorthand)
+- [x] Basic data types (int, float64, string, bool)
+- [x] Type inference and explicit typing
+- [x] Zero values (what happens when you declare without initializing)
+- [x] Type conversions (explicit, no implicit conversions like JS)
 
 **Differences from JS/Python:**
 - No `null` - Go has `nil` for pointers, slices, maps, channels, functions, interfaces
@@ -33,29 +33,29 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 - No automatic type coercion
 
 ### 1.3 Control Flow
-- [ ] If/else statements (no parentheses needed!)
-- [ ] Switch statements (more powerful than JS/Python)
-- [ ] For loops (only loop type in Go - no while/do-while)
-- [ ] Range loops (for iterating over slices, maps, strings, channels)
+- [x] If/else statements (no parentheses needed!)
+- [x] Switch statements (more powerful than JS/Python)
+- [x] For loops (only loop type in Go - no while/do-while)
+- [x] Range loops (for iterating over slices, maps, strings, channels)
 
 ### 1.4 Functions
-- [ ] Function declaration and calling
-- [ ] Multiple return values (common in Go!)
-- [ ] Named return values
-- [ ] Variadic functions (`...` syntax)
-- [ ] Functions as first-class citizens
-- [ ] Anonymous functions and closures
+- [x] Function declaration and calling
+- [x] Multiple return values (common in Go!)
+- [x] Named return values
+- [x] Variadic functions (`...` syntax)
+- [x] Functions as first-class citizens
+- [x] Anonymous functions and closures
 
 **Key Difference:**
 - Go functions can return multiple values (like tuples in Python, but built-in)
 - Error handling is typically done via return values, not exceptions
 
 ### 1.5 Packages and Imports
-- [ ] Understanding packages (`package` keyword)
-- [ ] Importing packages (`import`)
-- [ ] Exported vs unexported (capitalized vs lowercase)
-- [ ] Standard library packages (fmt, os, strings, etc.)
-- [ ] Creating your own packages
+- [x] Understanding packages (`package` keyword)
+- [x] Importing packages (`import`)
+- [x] Exported vs unexported (capitalized vs lowercase)
+- [x] Standard library packages (fmt, os, strings, etc.)
+- [x] Creating your own packages
 
 ---
 
