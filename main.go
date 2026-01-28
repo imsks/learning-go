@@ -9,6 +9,8 @@ func main() {
 	// fmt.Println("\n=== Control Flow ===")
 	// learnControlFlow()
 
-	fmt.Println("\n=== Functions ===")
-	learnFunctions()
+	// fmt.Println("\n=== Functions ===")
+	// learnFunctions()
+	fmt.Println("\n=== Pointers ===")
+	learnPointers()
 }
