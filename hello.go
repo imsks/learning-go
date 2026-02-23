@@ -12,7 +12,7 @@ func test() {
 	fmt.Println(name)
 
 	// 2. var with type (implicit)
-	var age int = 20
+	var age = 20
 	fmt.Println(age)
 
 	// 3. var with type (implicit)
