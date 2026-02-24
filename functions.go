@@ -5,7 +5,7 @@ import "fmt"
 // func greet(name string) {
 // 	fmt.Printf("Hello, %s", name)
 // }
-˙
+
 // func add(a int, b int) int {
 // 	return a + b
 // }

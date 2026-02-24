@@ -1,15 +1,28 @@
 package main
 
+type Person struct {
+	Name string
+	Age  int
+}
+
+func (p Person) SetAgeByValue(age int) {
+	p.Age = age
+}
+
+func (p *Person) SetAgeByRef(age int) {
+	p.Age = age
+}
+
 func learnPointers() {
 	// // 1. Basic pointer operations
 
 	// x := 2
 
-	// p := &x
+	// p := &x // Referenced
 
 	// fmt.Println("x =", x)
 	// fmt.Println("p =", p)
-	// fmt.Println("*p =", *p)
+	// fmt.Println("*p =", *p) // De-Referenced
 
 	// *p = 3
 	// fmt.Println("x =", x)
@@ -23,16 +36,35 @@ func learnPointers() {
 	// incrementByRef(&num)
 	// fmt.Println("num =", num)
 
-	// // 3. Creating pointers
-	// // Method 1: Get address of existing variable
+	// // // 3. Creating pointers
+	// // // Method 1: Get address of existing variable
 	// x := 42
 	// p1 := &x
 
-	// // Method 2: Create pointer to new value
-	// p2 := new(int)
-	// *p2 = 100
+	// // // Method 2: Create pointer to new value
+	// p2 := new(int) // allocates memory for an int and returns a pointer
+	// *p2 = 100      // Assigns value to allocated memory
 
-	// fmt.Print(p1, *p2)
+	// fmt.Print(p1, p2, *p2)
+
+	// var p *int // Nil pointer
+
+	// // fmt.Println(p, *p) // Error: Can't dereference a Nill pointer
+
+	// if p != nil {
+	// 	fmt.Println(*p)
+	// } else {
+	// 	fmt.Println("Pointer is nil")
+	// }
+
+	// person := Person{Name: "Sachin", Age: 25}
+
+	// person.SetAgeByValue(30)
+	// fmt.Println(person.Age)
+
+	// person.SetAgeByRef(35)
+	// fmt.Println(person.Age)
+
 }
 
 func incrementByValue(x int) {
