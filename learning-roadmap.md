@@ -62,10 +62,10 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 ## 📚 Phase 2: Go-Specific Features (Week 1-2)
 
 ### 2.1 Pointers
-- [ ] Understanding pointers (`*` and `&`)
-- [ ] When to use pointers vs values
-- [ ] Nil pointers and how to check them
-- [ ] Pointer receivers in methods
+- [x] Understanding pointers (`*` and `&`)
+- [x] When to use pointers vs values
+- [x] Nil pointers and how to check them
+- [x] Pointer receivers in methods
 
 **Important:**
 - Go has pointers (like C), but no pointer arithmetic

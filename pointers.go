@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Person struct {
 	Name string
 	Age  int
@@ -65,6 +67,31 @@ func learnPointers() {
 	// person.SetAgeByRef(35)
 	// fmt.Println(person.Age)
 
+	// When to use Pointers vs Values
+	// Use VALUES when:
+	// - Small data (int, bool, string)
+	// - You don't need to modify original
+	// - You want immutability
+	// func add(a, b int) int {
+	// 	return a + b
+	// }
+
+	// Use POINTERS when:
+	// - Large structs (avoid copying)
+	// - Need to modify original
+	// - Optional values (nil = not set)
+	// func updatePerson(p *Person) {
+	// 	p.Age++
+	// }
+
+}
+
+// Exercise 1: Write a function that swaps two integers using pointers
+func swap(a, b *int) {
+	temp := &a
+	b = a
+	a = *temp
+	fmt.Println(a, b)
 }
 
 func incrementByValue(x int) {
