@@ -11,6 +11,10 @@ func main() {
 
 	// fmt.Println("\n=== Functions ===")
 	// learnFunctions()
-	fmt.Println("\n=== Pointers ===")
-	learnPointers()
+
+	// fmt.Println("\n=== Pointers ===")
+	// learnPointers()
+
+	fmt.Println("\n=== Structs ===")
+	learnStructs()
 }
