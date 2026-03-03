@@ -83,11 +83,11 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 - No inheritance, but composition via embedding
 
 ### 2.3 Arrays and Slices
-- [ ] Arrays (fixed size, rarely used)
-- [ ] Slices (dynamic arrays, what you'll use most)
-- [ ] Slice operations (append, copy, slicing)
-- [ ] Slice internals (length, capacity, underlying array)
-- [ ] Making slices with `make()`
+- [x] Arrays (fixed size, rarely used)
+- [x] Slices (dynamic arrays, what you'll use most)
+- [x] Slice operations (append, copy, slicing)
+- [x] Slice internals (length, capacity, underlying array)
+- [x] Making slices with `make()`
 
 **Important:**
 - Slices are references to underlying arrays
