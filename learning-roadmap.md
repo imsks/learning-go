@@ -72,11 +72,11 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 - Everything is passed by value by default (unlike Python where objects are passed by reference)
 
 ### 2.2 Structs
-- [ ] Defining structs
-- [ ] Creating and initializing structs
-- [ ] Struct fields and methods
-- [ ] Pointer receivers vs value receivers
-- [ ] Struct embedding (composition over inheritance)
+- [x] Defining structs
+- [x] Creating and initializing structs
+- [x] Struct fields and methods
+- [x] Pointer receivers vs value receivers
+- [x] Struct embedding (composition over inheritance)
 
 **Key Concept:**
 - Go doesn't have classes - structs + methods = similar functionality
