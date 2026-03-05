@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// fmt.Println("=== Variables ===")
 	// runVariables()
@@ -16,6 +18,9 @@ func main() {
 	// fmt.Println("\n=== Structs ===")
 	// learnStructs()
 
-	// fmt.Println("\n=== Arrays & Slices ===")
-	learnArrays()
+	// // fmt.Println("\n=== Arrays & Slices ===")
+	// learnArrays()
+
+	fmt.Println("\n=== Arrays & Slices ===")
+	learnMaps()
 }

@@ -95,11 +95,11 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 - Be careful with slice capacity
 
 ### 2.4 Maps
-- [ ] Creating and initializing maps
-- [ ] Accessing, adding, deleting map elements
-- [ ] Checking if key exists
-- [ ] Iterating over maps
-- [ ] Maps are reference types
+- [x] Creating and initializing maps
+- [x] Accessing, adding, deleting map elements
+- [x] Checking if key exists
+- [x] Iterating over maps
+- [x] Maps are reference types
 
 **Difference from Python dicts:**
 - Keys must be comparable types
