@@ -106,11 +106,11 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 - No `None` as default - use `ok` idiom to check existence
 
 ### 2.5 Interfaces
-- [ ] Understanding interfaces (implicit implementation)
-- [ ] Interface types and values
-- [ ] Empty interface (`interface{}` or `any`)
-- [ ] Type assertions and type switches
-- [ ] Interface composition
+- [x] Understanding interfaces (implicit implementation)
+- [x] Interface types and values
+- [x] Empty interface (`interface{}` or `any`)
+- [x] Type assertions and type switches
+- [x] Interface composition
 
 **Key Concept:**
 - "If it quacks like a duck, it's a duck" - no explicit `implements` keyword

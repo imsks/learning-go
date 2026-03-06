@@ -1,19 +1,17 @@
 package main
 
-import "fmt"
+// type Person struct {
+// 	Name string
+// 	Age  int
+// }
 
-type Person struct {
-	Name string
-	Age  int
-}
+// func (p Person) SetAgeByValue(age int) {
+// 	p.Age = age
+// }
 
-func (p Person) SetAgeByValue(age int) {
-	p.Age = age
-}
-
-func (p *Person) SetAgeByRef(age int) {
-	p.Age = age
-}
+// func (p *Person) SetAgeByRef(age int) {
+// 	p.Age = age
+// }
 
 func learnPointers() {
 	// // 1. Basic pointer operations
@@ -86,18 +84,18 @@ func learnPointers() {
 
 }
 
-// Exercise 1: Write a function that swaps two integers using pointers
-func swap(a, b *int) {
-	temp := &a
-	b = a
-	a = *temp
-	fmt.Println(a, b)
-}
+// // Exercise 1: Write a function that swaps two integers using pointers
+// func swap(a, b *int) {
+// 	temp := &a
+// 	b = a
+// 	a = *temp
+// 	fmt.Println(a, b)
+// }
 
-func incrementByValue(x int) {
-	x++
-}
+// func incrementByValue(x int) {
+// 	x++
+// }
 
-func incrementByRef(x *int) {
-	*x++
-}
+// func incrementByRef(x *int) {
+// 	*x++
+// }

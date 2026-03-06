@@ -21,6 +21,9 @@ func main() {
 	// // fmt.Println("\n=== Arrays & Slices ===")
 	// learnArrays()
 
-	fmt.Println("\n=== Arrays & Slices ===")
-	learnMaps()
+	// fmt.Println("\n=== Map ===")
+	// learnMaps()
+
+	fmt.Println("\n=== Interfaces ===")
+	learnInterfaces()
 }
