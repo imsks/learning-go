@@ -24,6 +24,12 @@ func main() {
 	// fmt.Println("\n=== Map ===")
 	// learnMaps()
 
-	fmt.Println("\n=== Interfaces ===")
-	learnInterfaces()
+	// fmt.Println("\n=== Interfaces ===")
+	// learnInterfaces()
+
+	// fmt.Println("\n=== Error Handling ===")
+	// learnErrorHandling()
+
+	fmt.Println("\n=== Routines ===")
+	learnRoutines()
 }

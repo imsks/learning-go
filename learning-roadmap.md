@@ -121,11 +121,11 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 ## 📚 Phase 3: Error Handling & Concurrency (Week 2)
 
 ### 3.1 Error Handling
-- [ ] Error type and creating errors
-- [ ] Error handling patterns (check, handle, return)
-- [ ] Custom error types
-- [ ] Error wrapping (`fmt.Errorf` with `%w`)
-- [ ] `errors.Is()` and `errors.As()`
+- [x] Error type and creating errors
+- [x] Error handling patterns (check, handle, return)
+- [x] Custom error types
+- [x] Error wrapping (`fmt.Errorf` with `%w`)
+- [x] `errors.Is()` and `errors.As()`
 
 **Key Difference:**
 - No try/catch - errors are values
@@ -133,10 +133,10 @@ Build a simple REST API application in Go from scratch, understanding the fundam
 - "If you ignore an error, you're asking for trouble"
 
 ### 3.2 Goroutines
-- [ ] Understanding goroutines (`go` keyword)
-- [ ] Creating concurrent functions
-- [ ] Goroutine lifecycle
-- [ ] When goroutines finish (or don't)
+- [x] Understanding goroutines (`go` keyword)
+- [x] Creating concurrent functions
+- [x] Goroutine lifecycle
+- [x] When goroutines finish (or don't)
 
 **Key Concept:**
 - Goroutines are lightweight threads
