@@ -1,420 +1,154 @@
 # Go Backend Development Learning Roadmap
 
-## 🎯 Goal
-Build a simple REST API application in Go from scratch, understanding the fundamentals and best practices.
+## Goal
+
+Build real Go skills that transfer to **production and open-source work**—not to tick every box in the language spec.
 
 ---
 
-## 📚 Phase 1: Go Fundamentals (Week 1)
+## 80/20 accelerated path
 
-### 1.1 Getting Started
-- [x] Install Go and set up development environment
-- [x] Understand Go workspace structure (GOPATH vs Go modules)
-- [x] Write your first "Hello, World!" program
-- [x] Understand `go run`, `go build`, `go install` commands
-- [x] Set up Go modules (`go mod init`)
+Most day-to-day Go (APIs, CLIs, services) reuses a **small core**: types, errors, JSON, `net/http`, tests, and reading others’ code. Everything else—channels, advanced concurrency, profiling, deployment—is easier **in context** of a real repo.
 
-**Key Concepts:**
-- Go is compiled (unlike Python/JS which are interpreted)
-- Statically typed (unlike Python/JS which are dynamically typed)
-- Fast compilation and execution
-- Strong concurrency support built-in
+**This roadmap has two tracks:**
 
-### 1.2 Basic Syntax & Types
-- [x] Variables and constants (`var`, `const`, `:=` shorthand)
-- [x] Basic data types (int, float64, string, bool)
-- [x] Type inference and explicit typing
-- [x] Zero values (what happens when you declare without initializing)
-- [x] Type conversions (explicit, no implicit conversions like JS)
-
-**Differences from JS/Python:**
-- No `null` - Go has `nil` for pointers, slices, maps, channels, functions, interfaces
-- No truthy/falsy - must use explicit boolean comparisons
-- No automatic type coercion
-
-### 1.3 Control Flow
-- [x] If/else statements (no parentheses needed!)
-- [x] Switch statements (more powerful than JS/Python)
-- [x] For loops (only loop type in Go - no while/do-while)
-- [x] Range loops (for iterating over slices, maps, strings, channels)
-
-### 1.4 Functions
-- [x] Function declaration and calling
-- [x] Multiple return values (common in Go!)
-- [x] Named return values
-- [x] Variadic functions (`...` syntax)
-- [x] Functions as first-class citizens
-- [x] Anonymous functions and closures
-
-**Key Difference:**
-- Go functions can return multiple values (like tuples in Python, but built-in)
-- Error handling is typically done via return values, not exceptions
-
-### 1.5 Packages and Imports
-- [x] Understanding packages (`package` keyword)
-- [x] Importing packages (`import`)
-- [x] Exported vs unexported (capitalized vs lowercase)
-- [x] Standard library packages (fmt, os, strings, etc.)
-- [x] Creating your own packages
+1. **Pre-OSS essentials** — short list to finish **before** (or in parallel with) your first serious OSS contribution.
+2. **On the project** — learn when you hit it; no blocking “finish the book” phase.
 
 ---
 
-## 📚 Phase 2: Go-Specific Features (Week 1-2)
+## Foundation (completed)
 
-### 2.1 Pointers
-- [x] Understanding pointers (`*` and `&`)
-- [x] When to use pointers vs values
-- [x] Nil pointers and how to check them
-- [x] Pointer receivers in methods
+### Phase 1: Go fundamentals
+- [x] Getting started, modules, `go run` / `go build`
+- [x] Syntax, types, control flow, functions, packages
 
-**Important:**
-- Go has pointers (like C), but no pointer arithmetic
-- Everything is passed by value by default (unlike Python where objects are passed by reference)
+### Phase 2: Go-specific features
+- [x] Pointers, structs, slices, maps, interfaces
 
-### 2.2 Structs
-- [x] Defining structs
-- [x] Creating and initializing structs
-- [x] Struct fields and methods
-- [x] Pointer receivers vs value receivers
-- [x] Struct embedding (composition over inheritance)
+### Phase 3: Errors & concurrency (baseline)
+- [x] **3.1** Error handling (`error`, `if err != nil`, `fmt.Errorf` / `%w`, `errors.Is` when needed)
+- [x] **3.2** Goroutines (`go`, lifecycle, why not one OS thread per task)
 
-**Key Concept:**
-- Go doesn't have classes - structs + methods = similar functionality
-- No inheritance, but composition via embedding
-
-### 2.3 Arrays and Slices
-- [x] Arrays (fixed size, rarely used)
-- [x] Slices (dynamic arrays, what you'll use most)
-- [x] Slice operations (append, copy, slicing)
-- [x] Slice internals (length, capacity, underlying array)
-- [x] Making slices with `make()`
-
-**Important:**
-- Slices are references to underlying arrays
-- Appending can cause reallocation
-- Be careful with slice capacity
-
-### 2.4 Maps
-- [x] Creating and initializing maps
-- [x] Accessing, adding, deleting map elements
-- [x] Checking if key exists
-- [x] Iterating over maps
-- [x] Maps are reference types
-
-**Difference from Python dicts:**
-- Keys must be comparable types
-- No `None` as default - use `ok` idiom to check existence
-
-### 2.5 Interfaces
-- [x] Understanding interfaces (implicit implementation)
-- [x] Interface types and values
-- [x] Empty interface (`interface{}` or `any`)
-- [x] Type assertions and type switches
-- [x] Interface composition
-
-**Key Concept:**
-- "If it quacks like a duck, it's a duck" - no explicit `implements` keyword
-- Interfaces are satisfied implicitly
+**Deferred (learn on the project or when needed):** deep dive on channels, `select`, worker pools, `sync.Mutex` / `WaitGroup`, atomics—these matter for specific codepaths, not for “must finish before coding.”
 
 ---
 
-## 📚 Phase 3: Error Handling & Concurrency (Week 2)
+## Pre-OSS essentials (do these next)
 
-### 3.1 Error Handling
-- [x] Error type and creating errors
-- [x] Error handling patterns (check, handle, return)
-- [x] Custom error types
-- [x] Error wrapping (`fmt.Errorf` with `%w`)
-- [x] `errors.Is()` and `errors.As()`
+Tight list so you can move to **your open-source project** quickly. Check these off, then ship learning through real issues and reviews.
 
-**Key Difference:**
-- No try/catch - errors are values
-- Always check errors explicitly
-- "If you ignore an error, you're asking for trouble"
+### A. JSON (`encoding/json`) — high priority
+- [ ] `json.Marshal` / `json.Unmarshal` (and `Decoder` for streams if the API reads large bodies)
+- [ ] Struct tags: `` `json:"field_name"` ``, `omitempty`, ignoring fields
+- [ ] Nested structs and `[]` / `map` in JSON
 
-### 3.2 Goroutines
-- [x] Understanding goroutines (`go` keyword)
-- [x] Creating concurrent functions
-- [x] Goroutine lifecycle
-- [x] When goroutines finish (or don't)
+*Why:* Almost every HTTP handler speaks JSON. Custom marshalers can wait until you need them.
 
-**Key Concept:**
-- Goroutines are lightweight threads
-- Much cheaper than OS threads
-- Can spawn thousands easily
+### B. HTTP (`net/http`) — high priority
+- [ ] `http.Handler` / `HandlerFunc`; registering routes on `ServeMux` (or the router the project uses)
+- [ ] Methods: GET, POST, etc.; status codes; headers
+- [ ] Read request body (`io.ReadAll` / `json.NewDecoder(r.Body)`); write response (`w.Write`, `json.NewEncoder(w)`)
+- [ ] **Optional but common in OSS:** `http.Client` for outbound calls (timeouts, `context`)
 
-### 3.3 Channels
-- [ ] Creating channels (`make(chan type)`)
-- [ ] Sending and receiving (`<-` operator)
-- [ ] Buffered vs unbuffered channels
-- [ ] Channel direction (send-only, receive-only)
-- [ ] Closing channels
-- [ ] Range over channels
-- [ ] Select statement (like switch for channels)
+### C. `context` — medium priority (small investment, big payoff)
+- [ ] `context.Context` on request paths: cancellation, deadlines (`context.WithTimeout`)
+- [ ] Passing `ctx` into functions that do I/O (matches real codebases)
 
-**Key Concept:**
-- Channels are Go's way of communicating between goroutines
-- "Don't communicate by sharing memory; share memory by communicating"
+*Why:* stdlib and most libraries thread `context`; you’ll read it everywhere in OSS.
 
-### 3.4 Sync Package
-- [ ] WaitGroups (waiting for goroutines)
-- [ ] Mutexes (mutual exclusion locks)
-- [ ] RWMutex (read-write locks)
-- [ ] Once (executing code once)
-- [ ] Atomic operations
+### D. Testing — medium priority (enough to contribute safely)
+- [ ] `*_test.go`, `func TestXxx(t *testing.T)`
+- [ ] Table-driven tests (one pattern covers many cases)
+- [ ] `httptest` for handler tests when the project is HTTP-heavy
+
+*Skip for now:* fuzzing, benchmarks, heavy mocking frameworks—add when the repo demands it.
+
+### E. Project hygiene (quick)
+- [ ] `go fmt`, `go vet`, and running `go test ./...` before a PR
+- [ ] Reading `go.mod` / `go.sum` and adding deps with `go get`
 
 ---
 
-## 📚 Phase 4: Working with Data (Week 2-3)
+## On the OSS project (learn alongside)
 
-### 4.1 JSON Handling
-- [ ] Encoding/decoding JSON (`encoding/json`)
-- [ ] Struct tags for JSON (`json:"field_name"`)
-- [ ] Marshaling and unmarshaling
-- [ ] Handling nested structures
-- [ ] Custom JSON marshaling/unmarshaling
+Pick these up **when the issue touches them**—no need to front-load.
 
-### 4.2 File I/O
-- [ ] Reading files (`os.ReadFile`, `ioutil` - deprecated, use `os`)
-- [ ] Writing files
-- [ ] Working with file paths (`path/filepath`)
-- [ ] Reading line by line
-
-### 4.3 Working with Strings
-- [ ] String package functions
-- [ ] String builders (`strings.Builder`)
-- [ ] String formatting (`fmt.Sprintf`)
-- [ ] Regular expressions (`regexp`)
+| Topic | When to learn |
+|--------|----------------|
+| Channels, `select`, pipelines | Goroutine coordination, streaming, worker code |
+| `sync.Mutex`, `RWMutex`, `WaitGroup` | Shared state, parallel tests, worker pools |
+| `database/sql`, drivers, `sqlx` / ORM | Storage layer, migrations |
+| Middleware, JWT, cookies | Auth and cross-cutting HTTP behavior |
+| `os`, `filepath`, config files | CLI, config loading, file watchers |
+| Structured logging (`slog`, `zap`, etc.) | Observability in that repo |
+| Docker, health checks, graceful shutdown | Deployment and ops issues |
+| `pprof`, profiling | Performance issues |
 
 ---
 
-## 📚 Phase 5: Building Your First API (Week 3)
+## Open-source focus
 
-### 5.1 HTTP Basics in Go
-- [ ] Understanding `net/http` package
-- [ ] HTTP handlers and handler functions
-- [ ] HTTP methods (GET, POST, PUT, DELETE)
-- [ ] Request and Response objects
-- [ ] Reading request body
-- [ ] Writing response body
-- [ ] Status codes
+After **Pre-OSS essentials (A–E)**, prioritize:
 
-### 5.2 Routing
-- [ ] Using `http.ServeMux` (built-in router)
-- [ ] URL patterns and path matching
-- [ ] Query parameters
-- [ ] Path parameters (manual parsing or router library)
+1. **Clone the repo**, build with `go build`, run tests, read `CONTRIBUTING.md`.
+2. **Small PRs**: docs, tests, bugfixes—read existing patterns; match style.
+3. **Use the issue tracker** as your curriculum: each ticket teaches one slice of the stack.
 
-**Note:** For production, you'll likely use a router like `gorilla/mux` or `chi`, but start with standard library!
-
-### 5.3 Middleware
-- [ ] Understanding middleware concept
-- [ ] Creating middleware functions
-- [ ] Chaining middleware
-- [ ] Common middleware (logging, CORS, authentication)
-
-### 5.4 Project Structure
-- [ ] Organizing Go projects
-- [ ] Separating handlers, models, services
-- [ ] Package organization
-- [ ] Best practices for project layout
+Your “final project” is no longer a toy API in isolation—it’s **real usage** in a codebase you care about. Optionally keep a tiny side API if you want a sandbox; it’s not a gate to OSS.
 
 ---
 
-## 📚 Phase 6: Advanced API Features (Week 3-4)
+## Reference: fuller curriculum (optional later)
 
-### 6.1 Configuration
-- [ ] Environment variables (`os.Getenv`)
-- [ ] Configuration files
-- [ ] Using `flag` package for CLI flags
-- [ ] Struct-based configuration
-
-### 6.2 Database Integration
-- [ ] Understanding `database/sql` package
-- [ ] Connecting to databases (PostgreSQL, MySQL, SQLite)
-- [ ] Executing queries
-- [ ] Prepared statements
-- [ ] Transactions
-- [ ] Connection pooling
-
-**Popular Libraries:**
-- `sqlx` - extends database/sql
-- `gorm` - ORM (like Django ORM, Sequelize)
-- `pgx` - PostgreSQL driver
-
-### 6.3 Validation
-- [ ] Input validation
-- [ ] Struct validation
-- [ ] Using validation libraries (`validator`)
-
-### 6.4 Authentication & Authorization
-- [ ] JWT tokens
-- [ ] Password hashing (`bcrypt`, `golang.org/x/crypto`)
-- [ ] Session management
-- [ ] Middleware for auth
+If you ever want depth beyond the 80/20 path, topics map roughly to: full JSON customization, file I/O and strings, advanced routing and middleware, DB integration, validation, auth, production logging, graceful shutdown, deployment, and profiling. Treat these as a **menu**, not a prerequisite.
 
 ---
 
-## 📚 Phase 7: Testing & Best Practices (Week 4)
-
-### 7.1 Testing
-- [ ] Writing tests (`*_test.go` files)
-- [ ] `testing` package
-- [ ] Table-driven tests
-- [ ] Testing HTTP handlers
-- [ ] Mocking
-- [ ] Benchmarking
-
-### 7.2 Error Handling Best Practices
-- [ ] Proper error propagation
-- [ ] Error context
-- [ ] Logging errors
-- [ ] Error types for different scenarios
-
-### 7.3 Code Organization
-- [ ] Project structure patterns
-- [ ] Dependency injection
-- [ ] Separation of concerns
-- [ ] Clean architecture basics
-
-### 7.4 Documentation
-- [ ] Writing Go doc comments
-- [ ] Generating documentation (`go doc`)
-- [ ] README best practices
-
----
-
-## 📚 Phase 8: Production Readiness (Week 4-5)
-
-### 8.1 Logging
-- [ ] Using `log` package
-- [ ] Structured logging (`logrus`, `zap`)
-- [ ] Log levels
-- [ ] Logging best practices
-
-### 8.2 Graceful Shutdown
-- [ ] Handling OS signals
-- [ ] Graceful server shutdown
-- [ ] Cleanup resources
-
-### 8.3 Performance
-- [ ] Profiling Go applications
-- [ ] Understanding allocations
-- [ ] Optimizing hot paths
-- [ ] Using `pprof`
-
-### 8.4 Deployment
-- [ ] Building for production
-- [ ] Docker basics for Go apps
-- [ ] Environment configuration
-- [ ] Health checks
-
----
-
-## 🎯 Final Project: Simple API App
-
-### Project Requirements
-Build a REST API with the following features:
-
-1. **User Management**
-   - Create user (POST /users)
-   - Get user (GET /users/:id)
-   - List users (GET /users)
-   - Update user (PUT /users/:id)
-   - Delete user (DELETE /users/:id)
-
-2. **Data Storage**
-   - Use in-memory storage (map) initially
-   - Later: Add database (SQLite or PostgreSQL)
-
-3. **Features**
-   - JSON request/response
-   - Input validation
-   - Error handling
-   - Basic logging
-   - Health check endpoint
-
-4. **Optional Enhancements**
-   - Authentication
-   - Pagination
-   - Filtering/searching
-   - Rate limiting
-
----
-
-## 📖 Learning Resources
+## Learning resources
 
 ### Official
-- [Go Tour](https://go.dev/tour/) - Interactive tutorial
-- [Effective Go](https://go.dev/doc/effective_go) - Best practices
-- [Go by Example](https://gobyexample.com/) - Code examples
-
-### Books
-- "The Go Programming Language" by Donovan & Kernighan
-- "Go in Action" by William Kennedy
+- [Go Tour](https://go.dev/tour/)
+- [Effective Go](https://go.dev/doc/effective_go)
+- [Go by Example](https://gobyexample.com/)
 
 ### Practice
 - [Exercism Go Track](https://exercism.org/tracks/go)
-- [LeetCode with Go](https://leetcode.com/)
 
 ---
 
-## 💡 Tips for JS/Python Developers
+## Tips for JS/Python developers
 
-1. **Type System**: Go is statically typed. You'll need to be explicit about types, but the compiler catches errors early.
-
-2. **No Exceptions**: Errors are values. Always check them. It might feel verbose at first, but it makes error handling explicit.
-
-3. **Concurrency**: Goroutines and channels are Go's superpower. They're easier than async/await in JS or threading in Python.
-
-4. **Simplicity**: Go favors simplicity over cleverness. If something feels verbose, it's probably intentional.
-
-5. **Compilation**: You'll catch many errors at compile time, not runtime. This is a feature, not a bug!
-
-6. **Package Management**: Go modules (similar to npm/pip) handle dependencies. Use `go get` to add packages.
-
-7. **Naming**: Exported (public) names start with capital letters. Unexported (private) start with lowercase.
+1. **Errors are values** — check and return; wrapping with `%w` preserves cause for `errors.Is`.
+2. **Interfaces are implicit** — implement methods; no `implements` keyword.
+3. **Concurrency** — goroutines are cheap; coordination (channels, mutexes) is chosen per problem—don’t force channels everywhere.
+4. **Formatting** — `go fmt` is the style guide; run it before commit.
 
 ---
 
-## ✅ Progress Tracker
+## Progress tracker
 
-### Week 1
-- [ ] Completed Phase 1
-- [ ] Completed Phase 2
-- [ ] Built small practice programs
+### Foundation
+- [x] Phase 1 — Fundamentals
+- [x] Phase 2 — Pointers, structs, slices, maps, interfaces
+- [x] Phase 3.1 — Error handling
+- [x] Phase 3.2 — Goroutines
 
-### Week 2
-- [ ] Completed Phase 3
-- [ ] Completed Phase 4
-- [ ] Built concurrent programs
+### Pre-OSS essentials
+- [ ] A — JSON
+- [ ] B — `net/http`
+- [ ] C — `context`
+- [ ] D — Testing basics (+ `httptest` if HTTP-heavy)
+- [ ] E — `fmt` / `vet` / `go test ./...` / modules
 
-### Week 3
-- [ ] Completed Phase 5
-- [ ] Completed Phase 6
-- [ ] Started API project
-
-### Week 4
-- [ ] Completed Phase 7
-- [ ] Completed Phase 8
-- [ ] Finished API project
+### Open-source project
+- [ ] First successful build + test run
+- [ ] First merged contribution (docs, test, or fix)
 
 ---
 
-## 🚀 Next Steps After This Roadmap
+## After this path
 
-Once you've completed this roadmap, you can explore:
-- Microservices architecture
-- gRPC
-- WebSockets
-- Advanced database patterns
-- Kubernetes deployment
-- Service mesh
-- Performance optimization
+gRPC, WebSockets, Kubernetes, and advanced performance work fit naturally once you’re productive in a real repo—not as a second “degree” before you contribute.
 
----
-
-**Remember:** Learning is a journey. Take your time with each concept. Write code, break things, fix them. That's how you learn! 🎓
-
-Good luck on your Go journey! 🚀
-
+Learning is iterative: ship small changes, read reviews, repeat.

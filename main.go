@@ -30,6 +30,6 @@ func main() {
 	// fmt.Println("\n=== Error Handling ===")
 	// learnErrorHandling()
 
-	fmt.Println("\n=== Routines ===")
-	learnRoutines()
+	fmt.Println("\n=== learnChannels ===")
+	learnChannels()
 }
