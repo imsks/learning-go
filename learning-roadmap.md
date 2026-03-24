@@ -39,17 +39,17 @@ Most day-to-day Go (APIs, CLIs, services) reuses a **small core**: types, errors
 Tight list so you can move to **your open-source project** quickly. Check these off, then ship learning through real issues and reviews.
 
 ### A. JSON (`encoding/json`) — high priority
-- [ ] `json.Marshal` / `json.Unmarshal` (and `Decoder` for streams if the API reads large bodies)
-- [ ] Struct tags: `` `json:"field_name"` ``, `omitempty`, ignoring fields
-- [ ] Nested structs and `[]` / `map` in JSON
+- [x] `json.Marshal` / `json.Unmarshal` (and `Decoder` for streams if the API reads large bodies)
+- [x] Struct tags: `` `json:"field_name"` ``, `omitempty`, ignoring fields
+- [x] Nested structs and `[]` / `map` in JSON
 
 *Why:* Almost every HTTP handler speaks JSON. Custom marshalers can wait until you need them.
 
 ### B. HTTP (`net/http`) — high priority
-- [ ] `http.Handler` / `HandlerFunc`; registering routes on `ServeMux` (or the router the project uses)
-- [ ] Methods: GET, POST, etc.; status codes; headers
-- [ ] Read request body (`io.ReadAll` / `json.NewDecoder(r.Body)`); write response (`w.Write`, `json.NewEncoder(w)`)
-- [ ] **Optional but common in OSS:** `http.Client` for outbound calls (timeouts, `context`)
+- [x] `http.Handler` / `HandlerFunc`; registering routes on `ServeMux` (or the router the project uses)
+- [x] Methods: GET, POST, etc.; status codes; headers
+- [x] Read request body (`io.ReadAll` / `json.NewDecoder(r.Body)`); write response (`w.Write`, `json.NewEncoder(w)`)
+- [x] **Optional but common in OSS:** `http.Client` for outbound calls (timeouts, `context`)
 
 ### C. `context` — medium priority (small investment, big payoff)
 - [ ] `context.Context` on request paths: cancellation, deadlines (`context.WithTimeout`)
